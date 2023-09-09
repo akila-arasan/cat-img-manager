@@ -6,7 +6,9 @@
   "scripts": {
     "build": "npm run tsc",
     "tsc": "tsc -p tsconfig.json",
-    "dev": "npm run build && node dist/index.js",
+    "clean": "npm cache clean --force",
+    "dev": "NODE_ENV=dev npm run build && node dist/index.js",
+    "prod": "NODE_ENV=prod npm run clean && npm ci && npm run build && node dist/index.js",
     "test": "test"
   },
   "repository": {
