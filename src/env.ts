@@ -19,7 +19,13 @@ export const env = {
         host: getServerEnv('APP_HOST')
     },
     log: {
-        level: getServerEnv('LOG_LEVEL')
+        level: getServerEnv('LOG_LEVEL'),
+        files: {
+            debug: getServerEnv('LOG_FILE_DEBUG'),
+            others: getServerEnv('LOG_FILE_OTHERS'),
+            error: getServerEnv('LOG_FILE_ERROR'),
+            http: getServerEnv('LOG_FILE_HTTP')
+        }
     }
 }
 
