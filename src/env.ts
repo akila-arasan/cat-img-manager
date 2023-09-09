@@ -6,7 +6,7 @@ import { getServerEnv } from './lib/utils';
 /**
  * Load .env.test file in the event of test environment
  */
-dotenv.config({path: join(cwd(), `.env${((process.env.NODE_ENV === 'test') ? '.test': '')}`) });
+dotenv.config({path: join(cwd(), `.env${((process.env.NODE_ENV === 'test') ? '.test': '.dev')}`) });
 
 export const env = {
     environment: process.env.NODE_ENV || 'dev',
@@ -15,7 +15,8 @@ export const env = {
     app: {
         routePrefix: getServerEnv('APP_ROUTE_PREFIX'),
         port: getServerEnv('APP_PORT'),
-        appSchema: getServerEnv('APP_SCHEMA')
+        appSchema: getServerEnv('APP_SCHEMA'),
+        host: getServerEnv('APP_HOST')
     },
     log: {
         level: getServerEnv('LOG_LEVEL')

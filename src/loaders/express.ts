@@ -1,4 +1,13 @@
 import express from 'express';
+import { env } from '../env';
+
+const {
+    app: {
+        port,
+        appSchema,
+        host
+    }
+} = env
 
 class ExpressLoader {
     public express: express.Application;
@@ -8,8 +17,8 @@ class ExpressLoader {
     }
 
     bootstrap() {
-        this.express.listen(3000, () => {
-            console.log(`Server is up and running @ 'http://localhost:3000'`);
+        this.express.listen(port, () => {
+            console.log(`Server is up and running @ '${appSchema}://${host}:${port}'`);
         }).on('error', (_error) => {
             console.log(`Application crashed due to ${_error}`);
         })
